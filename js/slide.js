@@ -1,6 +1,6 @@
 import debounce from './debounce.js';
 
-export default class Slide {
+export class Slide {
     constructor(slide, wrapper) {
         this.slide = document.querySelector(slide);
         this.wrapper = document.querySelector(wrapper);
@@ -150,7 +150,7 @@ export default class Slide {
     }
 }
 
-export class SlideNav extends Slide {
+export default class SlideNav extends Slide {
     constructor(slide, wrapper) {
         super(slide, wrapper);
         this.bindControlEvents();
@@ -187,7 +187,7 @@ export class SlideNav extends Slide {
     }
 
     activeControlItem() {
-        this.controlArray.forEach(item => item.classList.remove(activeClass));
+        this.controlArray.forEach(item => item.classList.remove(this.activeClass));
         this.controlArray[this.index.active].classList.add(this.activeClass);
     }
 
